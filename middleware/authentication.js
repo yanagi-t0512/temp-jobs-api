@@ -14,8 +14,8 @@ const auth = (req, res, next) => {
   // if(authHeader){
   //   token = authHeader.split(' ')[1]
   // }
-  // const token = authHeader.split(' ')[1]
-  const token = authHeader
+  const token = authHeader.split(' ')[1]
+  // const token = authHeader
   // console.log('トークン', token)
   try {
     const payload = jwt.verify(token, process.env.JWT_SECRET)
