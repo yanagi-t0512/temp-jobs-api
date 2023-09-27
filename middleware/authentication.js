@@ -10,7 +10,11 @@ const auth = (req, res, next) => {
     throw new UnauthenticatedError('認証に失敗しました')
   }
 
-  const token = authHeader.split(' ')[1]
+  let token = ''
+  if(authHeader){
+    token = authHeader.split(' ')[1]
+  }
+  // const token = authHeader.split(' ')[1]
   // console.log('トークン', token)
   try {
     const payload = jwt.verify(token, process.env.JWT_SECRET)
